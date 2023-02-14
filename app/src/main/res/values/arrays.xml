@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="vtubers">
+        <item>Rin Penrose</item>
+        <item>Ouro Kronii</item>
+        <item>Calliope Mori</item>
+    </string-array>
+</resources>
