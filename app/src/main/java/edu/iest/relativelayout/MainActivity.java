@@ -2,6 +2,7 @@ package edu.iest.relativelayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         EditText etCanal = findViewById(R.id.etCanal);
         TextView tvCanal = findViewById(R.id.tvCanal);
         Spinner spinner = findViewById(R.id.spVtubers);
+        ImageView imageView = findViewById(R.id.ivVtuber);
         ivVtuber = findViewById(R.id.ivVtuber);
         spinner.setOnItemSelectedListener(this);
         bnCambiar.setOnClickListener(new View.OnClickListener() {
@@ -34,6 +36,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 String texto = etCanal.getText().toString();
                 Toast.makeText(MainActivity.this, "El valor era "+texto, Toast.LENGTH_LONG).show();
                 tvCanal.setText(texto);
+            }
+        });
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent( MainActivity.this, DatosActivity.class);
+                startActivity(i);
             }
         });
     }
@@ -52,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             ivVtuber.setImageResource(R.drawable.vtuber3);
         }
     }
+
+
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
