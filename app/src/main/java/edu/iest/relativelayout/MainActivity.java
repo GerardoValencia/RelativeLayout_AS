@@ -1,8 +1,10 @@
 package edu.iest.relativelayout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,9 +26,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Button bnCambiar = findViewById(R.id.bnCambiar);
         EditText etCanal = findViewById(R.id.etCanal);
         TextView tvCanal = findViewById(R.id.tvCanal);
+        TextView tvLegendCanal = findViewById(R.id.tvLegendCanal);
         Spinner spinner = findViewById(R.id.spVtubers);
         ImageView imageView = findViewById(R.id.ivVtuber);
         ivVtuber = findViewById(R.id.ivVtuber);
+
+        //Cambiar color fondo y texto por codigo
+        tvCanal.setBackgroundColor(ContextCompat.getColor(this, R.color.purple_200));
+        tvCanal.setTextColor(ContextCompat.getColor(this, R.color.white));
+
+        //Otras opciones
+        tvLegendCanal.setBackgroundColor(Color.parseColor(("#DDE426")));
+        tvLegendCanal.setBackgroundColor(Color.DKGRAY);
+
         spinner.setOnItemSelectedListener(this);
         bnCambiar.setOnClickListener(new View.OnClickListener() {
             @Override
