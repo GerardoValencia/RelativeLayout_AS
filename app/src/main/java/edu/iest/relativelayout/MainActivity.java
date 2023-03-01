@@ -34,16 +34,32 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //aquí la lógica que hacer al dar clic
                 //obtendremos el valor del edittext y lo asignaremos al textview inferior
                 String texto = etCanal.getText().toString();
-                Toast.makeText(MainActivity.this, "El valor era "+texto, Toast.LENGTH_LONG).show();
                 tvCanal.setText(texto);
+                Toast.makeText(getApplicationContext(), "Texto Actualizado", Toast.LENGTH_SHORT).show
+                //Toast.makeText(MainActivity.this, "El valor era "+texto, Toast.LENGTH_LONG).show();
             }
         });
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent( MainActivity.this, DatosActivity.class);
-                startActivity(i);
+                // Crear la alerta
+                AlertDialog.Builder builder = new AlertDialog.Builder(Mactivity.this);
+                builder.setTitle("¿Desea continura?");
+                builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Ir a la segunda pantalla
+                        Intent i = new Intent(MainActivity.this, DatosActivity.class);
+                        i.putExtra("parametroString", "texto de prueba");
+                        i.putExtra("parametroInt", 123);
+                        startActivity(i);
+                    }
+                });
+                build.setNegativeButton("No", null);
+                builder.show();
+                // Intent i = new Intent( MainActivity.this, DatosActivity.class);
+                // startActivity(i);
             }
         });
     }
