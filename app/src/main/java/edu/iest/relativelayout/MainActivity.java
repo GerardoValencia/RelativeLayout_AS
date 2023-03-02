@@ -1,8 +1,10 @@
 package edu.iest.relativelayout;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 //obtendremos el valor del edittext y lo asignaremos al textview inferior
                 String texto = etCanal.getText().toString();
                 tvCanal.setText(texto);
-                Toast.makeText(getApplicationContext(), "Texto Actualizado", Toast.LENGTH_SHORT).show
+                Toast.makeText(getApplicationContext(), "Texto Actualizado", Toast.LENGTH_SHORT).show();
                 //Toast.makeText(MainActivity.this, "El valor era "+texto, Toast.LENGTH_LONG).show();
             }
         });
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onClick(View view) {
                 // Crear la alerta
-                AlertDialog.Builder builder = new AlertDialog.Builder(Mactivity.this);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
                 builder.setTitle("¿Desea continura?");
                 builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                     @Override
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         startActivity(i);
                     }
                 });
-                build.setNegativeButton("No", null);
+                builder.setNegativeButton("No", null);
                 builder.show();
                 // Intent i = new Intent( MainActivity.this, DatosActivity.class);
                 // startActivity(i);
